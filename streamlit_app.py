@@ -85,7 +85,7 @@ def optimize_prompt(task_or_prompt):
 
 # Initialize session state for the optimized prompt
 if "optimized_prompt" not in st.session_state:
-    st.session_state.optimized_prompt = "Ciaoooo"
+    st.session_state.optimized_prompt = ""
 
 
 col1, col2 = st.columns([1, 1])
