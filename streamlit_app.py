@@ -1,6 +1,5 @@
 import streamlit as st
 from openai import OpenAI
-from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Page configuration with custom theme
 st.set_page_config(
@@ -127,5 +126,20 @@ with col2:
             st.markdown(st.session_state.optimized_prompt)
             
             if st.button("📋 Copia negli Appunti", use_container_width=True):
-                st_copy_to_clipboard(st.session_state.optimized_prompt)
+                # Javascript per copiare il testo
+                js_code = f"""
+                <script>
+                function copyToClipboard(text) {{
+                    const el = document.createElement('textarea');
+                    el.value = text;
+                    document.body.appendChild(el);
+                    el.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(el);
+                    alert('Testo copiato negli appunti!');
+                }}
+                copyToClipboard(`{st.session_state.optimized_prompt}`);
+                </script>
+                """
+                st.markdown(js_code, unsafe_allow_html=True)
                 st.write("Copiato negli appunti!")
