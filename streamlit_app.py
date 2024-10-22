@@ -127,21 +127,21 @@ with col2:
             st.markdown(st.session_state.optimized_prompt)
             
             # Bottone per copiare il prompt ottimizzato negli appunti
-            if st.button("📋 Copia negli Appunti", use_container_width=True):
-                # Componente HTML che include il Javascript per copiare il testo negli appunti
-                components.html(f"""
-                <script>
-                function copyToClipboard(text) {{
-                    const el = document.createElement('textarea');
-                    el.value = text;
-                    document.body.appendChild(el);
-                    el.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(el);
-                    alert('Testo copiato negli appunti!');
-                }}
-                copyToClipboard(`{st.session_state.optimized_prompt}`);
-                </script>
-                """, height=0)
-
-                st.write("Copiato negli appunti!")
+            components.html(f"""
+            <button id="copy-btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+                📋 Copia negli Appunti
+            </button>
+            
+            <script>
+            document.getElementById("copy-btn").onclick = function() {{
+                const textToCopy = `{st.session_state.optimized_prompt}`;
+                const el = document.createElement('textarea');
+                el.value = textToCopy;
+                document.body.appendChild(el);
+                el.select();
+                document.execCommand('copy');
+                document.body.removeChild(el);
+                alert('Testo copiato negli appunti!');
+            }};
+            </script>
+            """, height=100)
