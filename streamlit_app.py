@@ -12,12 +12,12 @@ st.set_page_config(
 # Custom CSS for better UI
 st.markdown("""
     <style>
-        .stTextArea textarea {
-            font-family: monospace;
-        }
-        .stButton button {
-            width: 100%;
-        }
+            .stTextArea textarea {
+                font-family: monospace;
+            }
+            .stButton button {
+                width: 100%;
+            }
     </style>
 """, unsafe_allow_html=True)
 
@@ -85,7 +85,7 @@ def optimize_prompt(task_or_prompt):
 
 # Initialize session state for the optimized prompt
 if "optimized_prompt" not in st.session_state:
-    st.session_state.optimized_prompt = ""
+    st.session_state.optimized_prompt = "Ciaoooo"
 
 
 col1, col2 = st.columns([1, 1])
@@ -128,9 +128,10 @@ with col2:
             
             # Bottone per copiare il prompt ottimizzato negli appunti
             components.html(f"""
-            <button id="copy-btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
-                📋 Copia negli Appunti
+            <button id="copy-btn" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #00ac69; color: white; border: none; border-radius: 5px;">
+                📋 Copia Prompt
             </button>
+
             
             <script>
             document.getElementById("copy-btn").onclick = function() {{
