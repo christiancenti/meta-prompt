@@ -1,6 +1,6 @@
 import streamlit as st
 from openai import OpenAI
-import pyperclip
+from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Page configuration with custom theme
 st.set_page_config(
@@ -127,5 +127,5 @@ with col2:
             st.markdown(st.session_state.optimized_prompt)
             
             if st.button("📋 Copia negli Appunti", use_container_width=True):
-                pyperclip.copy(st.session_state.optimized_prompt)
+                st_copy_to_clipboard(st.session_state.optimized_prompt)
                 st.write("Copiato negli appunti!")
