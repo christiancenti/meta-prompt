@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import streamlit.components.v1 as components
 
 # Page configuration with custom theme
 st.set_page_config(
@@ -125,9 +126,10 @@ with col2:
         with output_container:
             st.markdown(st.session_state.optimized_prompt)
             
+            # Bottone per copiare il prompt ottimizzato negli appunti
             if st.button("📋 Copia negli Appunti", use_container_width=True):
-                # Javascript per copiare il testo
-                js_code = f"""
+                # Componente HTML che include il Javascript per copiare il testo negli appunti
+                components.html(f"""
                 <script>
                 function copyToClipboard(text) {{
                     const el = document.createElement('textarea');
@@ -140,6 +142,6 @@ with col2:
                 }}
                 copyToClipboard(`{st.session_state.optimized_prompt}`);
                 </script>
-                """
-                st.markdown(js_code, unsafe_allow_html=True)
+                """, height=0)
+
                 st.write("Copiato negli appunti!")
