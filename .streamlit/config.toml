@@ -1,52 +1,22 @@
 [theme]
-# Tema personalizzato
-base = "light"  # Usa il tema chiaro come base
-primaryColor = "#00ac69"  # Verde per elementi interattivi
-backgroundColor = "#ffffff"  # Sfondo bianco
-secondaryBackgroundColor = "#1a0a38"  # Viola scuro per sidebar
-textColor = "#2c3e50"  # Testo scuro
+primaryColor = "#00ac69"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#1a0a38"
+textColor = "#2c3e50"
 font = "sans serif"
 
 [server]
-# Configurazione del server
 enableCORS = true
 enableXsrfProtection = true
+# Lista di domini consentiti per CORS
+allowedOrigins = ["https://artificialitalian.it"]
 maxUploadSize = 200
 maxMessageSize = 200
 port = 8501
-baseUrlPath = ""
-headless = false
-runOnSave = false
-enableWebsocketCompression = true
-enableStaticServing = false
-address = ""
-disconnectedSessionTTL = 120
 
 [browser]
-# Configurazione del browser
 serverAddress = "artificialitalian.it"
 gatherUsageStats = false
-serverPort = 8501
-
-[client]
-# Configurazione del client
-showErrorDetails = true
-toolbarMode = "auto"
-showSidebarNavigation = true
-
-[logger]
-# Configurazione del logger
-level = "info"
-messageFormat = "%(asctime)s %(message)s"
-
-[runner]
-# Configurazione del runner
-magicEnabled = true
-fastReruns = true
-enforceSerializableSessionState = false
-enumCoercion = "nameOnly"
 
 [global]
-# Configurazioni globali
 showWarningOnDirectExecution = true
-disableWidgetStateDuplicationWarning = false
