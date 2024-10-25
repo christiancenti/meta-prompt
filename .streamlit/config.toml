@@ -1,0 +1,18 @@
+[theme]
+primaryColor = "#00ac69"  # Verde brillante per pulsanti e elementi interattivi
+backgroundColor = "#ffffff"  # Sfondo bianco per massimo contrasto
+secondaryBackgroundColor = "#1a0a38"  # Viola scuro per aree secondarie
+textColor = "#1a0a38"  # Grigio scuro per il testo principale
+
+[browser]
+gatherUsageStats = false
+
+[server]
+enableCORS = true
+allowedOrigins = ["https://artificialitalian.it"]
+enableXsrfProtection = true
+maxUploadSize = 200
+maxMessageSize = 200
+
+[global]
+developmentMode = false
